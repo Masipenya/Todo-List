@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap');
+
+:root{
+    --radius: 15px;
+    --app-width: 600px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: auto;
+    background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%,  rgba(255,25,25,1) 98%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.wave {
+    background: rgb(255 255 255 / 25%);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 12em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+}
+
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+
+    25% {
+        transform: translateX(-25%);
+    }
+
+    50% {
+        transform: translateX(-50%);
+    }
+
+    75% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(1);
+    }
+}
+
+.app {
+    color: #ffffffb0;
+    background-color: #ffffff21;
+    width: var(--app-width);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: 0 15px 40px -20px  black;
+}
+
+.app h1{
+    margin-top: 0;
+    margin-bottom: 40px;
+    font-size:  28px;
+
+}
+
+.todo-input{
+    width: 100%;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: var(--radius);
+    padding: 1rem 1.5rem;
+    font-size: 20px;
+    background-color: #f4f4f425;
+    color: white;
+}
+
+.todo-input::placeholder{
+    color: #ffffff70;
+
+}
+
+.todos,
+.completed-todos,
+.uncompleted-todos{
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.todo-item{
+    background-color: #f4f4f4bd;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+}
+
+.todo-item span{
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+
+.todo-item input[type=checkbox]{
+    width: 20px;
+    height: 20px;
+    accent-color: lime;
+
+}
+
+.todo-item a{
+    color: #555555;
+}
+
+.todo-item a svg{
+    width: 25px;
+    height: 25px;
+    pointer-events: none;
+
+}
+
+.completed-todos .todo-item{
+    background-color: #74c674;
+    text-decoration: line-through;
+}
+
+.completed-title{
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
